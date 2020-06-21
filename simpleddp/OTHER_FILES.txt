@@ -1,0 +1,10 @@
+./helpers/fullCopy.d.ts
+./helpers/isequal.d.ts
+./index.d.ts
+./classes/ddpEventListener.d.ts
+./classes/ddpReactiveCollection.d.ts
+./classes/ddpCollection.d.ts
+./classes/ddpSubscription.d.ts
+./classes/ddpReducer.d.ts
+./classes/ddpReactiveDocument.d.ts
+./classes/ddpOnChange.d.ts
