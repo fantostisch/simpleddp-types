@@ -1,6 +1,8 @@
 set -e # Stop on error
 set -o xtrace # Print commands before running
 
+quilt pop -a
+
 if [ -d "repo" ]; then
   (
    cd repo
@@ -37,3 +39,4 @@ cp tsconfig.json types/
 rm -rf simpleddp
 mv types simpleddp
 
+quilt push -a

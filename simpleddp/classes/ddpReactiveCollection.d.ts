@@ -5,7 +5,7 @@
  * @param {Object} [settings={skip:0,limit:Infinity,sort:false}] - Object for declarative reactive collection slicing.
  * @param {Function} [filter=undefined] - Filter function.
  */
-export class ddpReactiveCollection {
+export class ddpReactiveCollection<T> {
     constructor(ddpCollectionInstance: any, settings: any, filter: any);
     _skip: any;
     _limit: any;
@@ -110,7 +110,7 @@ export class ddpReactiveCollection {
      * @public
      * @return {Array} - Local collection with applied sorting, skip and limit.
      */
-    public data(): any[];
+    public data(): T[];
     /**
      * Runs a function every time a change occurs.
      * @param {Function} f - Function which recieves new collection at each change.

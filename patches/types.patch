@@ -1,0 +1,58 @@
+--- a/simpleddp/classes/ddpCollection.d.ts
++++ b/simpleddp/classes/ddpCollection.d.ts
+@@ -4,7 +4,7 @@
+  * @param {String} name - Collection name.
+  * @param {simpleDDP} server - simpleDDP instance.
+  */
+-export class ddpCollection {
++export class ddpCollection<T> {
+     constructor(name: any, server: any);
+     _name: any;
+     _server: any;
+@@ -30,7 +30,7 @@
+      * @param {string} [format='string'] - If 'string' then returns EJSON string, if 'raw' returns js object.
+      * @return {string|Object}
+      */
+-    public exportData(format?: string): string | any;
++    public exportData(format?: string): string | T;
+     /**
+      * Returns collection data based on filter and on passed settings. Supports skip, limit and sort.
+      * Order is 'filter' then 'sort' then 'skip' then 'limit'.
+@@ -39,7 +39,7 @@
+      * sort is a standard js array sort function.
+      * @return {Object}
+      */
+-    public fetch(settings?: any): any;
++    public fetch(settings?: any): T;
+     /**
+      * Returns reactive collection object.
+      * @see ddpReactiveCollection
+@@ -47,7 +47,7 @@
+      * @param {Object} [settings={skip:0,limit:Infinity,sort:null}]
+      * @return {ddpReactiveCollection} - @see ddpReactiveCollection
+      */
+-    public reactive(settings?: any): ddpReactiveCollection;
++    public reactive(settings?: any): ddpReactiveCollection<T>;
+     /**
+      * Returns change observer.
+      * @see ddpOnChange
+--- a/simpleddp/classes/ddpReactiveCollection.d.ts
++++ b/simpleddp/classes/ddpReactiveCollection.d.ts
+@@ -5,7 +5,7 @@
+  * @param {Object} [settings={skip:0,limit:Infinity,sort:false}] - Object for declarative reactive collection slicing.
+  * @param {Function} [filter=undefined] - Filter function.
+  */
+-export class ddpReactiveCollection {
++export class ddpReactiveCollection<T> {
+     constructor(ddpCollectionInstance: any, settings: any, filter: any);
+     _skip: any;
+     _limit: any;
+@@ -110,7 +110,7 @@
+      * @public
+      * @return {Array} - Local collection with applied sorting, skip and limit.
+      */
+-    public data(): any[];
++    public data(): T[];
+     /**
+      * Runs a function every time a change occurs.
+      * @param {Function} f - Function which recieves new collection at each change.

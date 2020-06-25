@@ -4,7 +4,7 @@
  * @param {String} name - Collection name.
  * @param {simpleDDP} server - simpleDDP instance.
  */
-export class ddpCollection {
+export class ddpCollection<T> {
     constructor(name: any, server: any);
     _name: any;
     _server: any;
@@ -30,7 +30,7 @@ export class ddpCollection {
      * @param {string} [format='string'] - If 'string' then returns EJSON string, if 'raw' returns js object.
      * @return {string|Object}
      */
-    public exportData(format?: string): string | any;
+    public exportData(format?: string): string | T;
     /**
      * Returns collection data based on filter and on passed settings. Supports skip, limit and sort.
      * Order is 'filter' then 'sort' then 'skip' then 'limit'.
@@ -39,7 +39,7 @@ export class ddpCollection {
      * sort is a standard js array sort function.
      * @return {Object}
      */
-    public fetch(settings?: any): any;
+    public fetch(settings?: any): T;
     /**
      * Returns reactive collection object.
      * @see ddpReactiveCollection
@@ -47,7 +47,7 @@ export class ddpCollection {
      * @param {Object} [settings={skip:0,limit:Infinity,sort:null}]
      * @return {ddpReactiveCollection} - @see ddpReactiveCollection
      */
-    public reactive(settings?: any): ddpReactiveCollection;
+    public reactive(settings?: any): ddpReactiveCollection<T>;
     /**
      * Returns change observer.
      * @see ddpOnChange
