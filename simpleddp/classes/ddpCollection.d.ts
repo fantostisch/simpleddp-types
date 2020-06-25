@@ -45,16 +45,18 @@ export class ddpCollection {
      * @see ddpReactiveCollection
      * @public
      * @param {Object} [settings={skip:0,limit:Infinity,sort:null}]
-     * @return {Object} - @see ddpReactiveCollection
+     * @return {ddpReactiveCollection} - @see ddpReactiveCollection
      */
-    public reactive(settings?: any): any;
+    public reactive(settings?: any): ddpReactiveCollection;
     /**
      * Returns change observer.
      * @see ddpOnChange
      * @public
      * @param {Function} f
      * @param {Function} filter
-     * @return {Object} - @see ddpOnChange
+     * @return {ddpOnChange} - @see ddpOnChange
      */
-    public onChange(f: Function, filter: Function): any;
+    public onChange(f: Function, filter: Function): ddpOnChange;
 }
+import { ddpReactiveCollection } from "./ddpReactiveCollection.js";
+import { ddpOnChange } from "./ddpOnChange.js";
