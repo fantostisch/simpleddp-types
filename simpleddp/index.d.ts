@@ -1,5 +1,13 @@
 declare module 'simpleddp' {
 export default simpleDDP;
+
+export interface userAuth {
+    id: string
+    token: string
+    tokenExpires: any //todo: date
+    type: string
+}
+
 /**
  * Creates an instance of simpleDDP class. After being constructed, the instance will
  * establish a connection with the DDP server and will try to maintain it open.
@@ -55,6 +63,11 @@ declare class simpleDDP {
     addedEvent: ddpEventListener;
     changedEvent: ddpEventListener;
     removedEvent: ddpEventListener;
+    /**
+     * undefined when user is not logged in or equal to user._id when user is logged in.
+     * simpleddp-plugin-login needs to be installed and used.
+     */
+    public userId?: string
     /**
      * Restarts all subs.
      * @private
@@ -196,6 +209,27 @@ declare class simpleDDP {
      * @return {Promise} - Resolves when all passed subscriptions are marked as ready.
      */
     public markAsReady(subs: any[]): Promise<any>;
+
+    /**
+     * Call this method to login with any Meteor.Accounts login provider.
+     * simpleddp-plugin-login needs to be installed and used.
+     * @param auth
+     * @return Promise which resolves to the object with userId of the logged in user when the login succeeds, or rejects when it fails.
+     */
+    public login(auth: {
+        password?: string
+        user: {
+            username?: string
+            email?: string
+        }
+    }): Promise<userAuth>
+
+    /**
+     * Call this method to logout.
+     * simpleddp-plugin-login needs to be installed and used.
+     * @return Promise which resolves to undefined when the logout succeeds, or rejects when it fails.
+     */
+    public logout(): Promise<undefined>
 }
 import { ddpEventListener } from "./classes/ddpEventListener";
 import { ddpCollection } from "./classes/ddpCollection";

@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-npm install --save-dev fantostisch/simpleddp-types#2.2.4
+npm install --save-dev fantostisch/simpleddp-types#2.2.4-2
 ```
 
 Update `tsconfig.json`:
