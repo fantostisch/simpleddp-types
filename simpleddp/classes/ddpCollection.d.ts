@@ -45,7 +45,7 @@ export class ddpCollection<T> {
      * @see ddpReactiveCollection
      * @public
      * @param {Object} [settings={skip:0,limit:Infinity,sort:null}]
-     * @return {ddpReactiveCollection} - @see ddpReactiveCollection
+     * @return {ddpReactiveCollection}
      */
     public reactive(settings?: any): ddpReactiveCollection<T>;
     /**
@@ -54,7 +54,7 @@ export class ddpCollection<T> {
      * @public
      * @param {Function} f
      * @param {Function} filter
-     * @return {ddpOnChange} - @see ddpOnChange
+     * @return {ddpOnChange}
      */
     public onChange(f: Function, filter: Function): ddpOnChange;
 }
