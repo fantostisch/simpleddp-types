@@ -116,7 +116,7 @@ export class ddpReactiveCollection<T> {
      * @param {Function} f - Function which recieves new collection at each change.
      * @public
      */
-    public onChange(f: (collection: T) => void): ddpOnChange;
+    public onChange(f: (collection: T[]) => void): ddpOnChange;
     /**
      * Maps reactive local collection to another reactive array.
      * Specified function form {@link https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map}.
