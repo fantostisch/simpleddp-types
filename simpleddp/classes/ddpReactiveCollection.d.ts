@@ -74,17 +74,17 @@ export class ddpReactiveCollection<T> {
     /**
    * Updates the skip parameter only.
    * @public
-   * @param {number} - A number of documents to skip.
+   * @param {number} n - A number of documents to skip.
      * @return {this}
    */
-    public skip(n: any): this;
+    public skip(n: number): this;
     /**
    * Updates the limit parameter only.
    * @public
-   * @param {number} - A number of documents to observe.
+   * @param {number} n - A number of documents to observe.
      * @return {this}
    */
-    public limit(n: any): this;
+    public limit(n: number): this;
     /**
      * Stops reactivity. Also stops associated reactive objects.
      * @public
