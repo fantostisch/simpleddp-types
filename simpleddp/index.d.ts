@@ -79,7 +79,7 @@ declare class simpleDDP {
      * @param {string} name - Collection name.
      * @return {ddpCollection}
      */
-    public collection(name: string): ddpCollection;
+    public collection<T>(name: string): ddpCollection<T>;
     /**
      * Dispatcher for ddp added messages.
      * @private

@@ -29,7 +29,7 @@
       * @see ddpReactiveCollection
 @@ -47,7 +47,7 @@
       * @param {Object} [settings={skip:0,limit:Infinity,sort:null}]
-      * @return {ddpReactiveCollection} - @see ddpReactiveCollection
+      * @return {ddpReactiveCollection}
       */
 -    public reactive(settings?: any): ddpReactiveCollection;
 +    public reactive(settings?: any): ddpReactiveCollection<T>;
@@ -56,3 +56,14 @@
      /**
       * Runs a function every time a change occurs.
       * @param {Function} f - Function which recieves new collection at each change.
+--- a/simpleddp/index.d.ts
++++ b/simpleddp/index.d.ts
+@@ -66,7 +66,7 @@
+      * @param {string} name - Collection name.
+      * @return {ddpCollection}
+      */
+-    public collection(name: string): ddpCollection;
++    public collection<T>(name: string): ddpCollection<T>;
+     /**
+      * Dispatcher for ddp added messages.
+      * @private
