@@ -16,7 +16,7 @@ export class ddpCollection<T> {
      * @param {Function} f - Filter function, recieves as arguments object, index and array.
      * @return {this}
      */
-    public filter(f: Function): this;
+    public filter(f: ((value: T, index: number, collection: T[]) => boolean)): this;
     /**
      * Imports data inside the collection and emits all relevant events.
      * Both string and JS object types are supported.
