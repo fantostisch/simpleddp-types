@@ -5,8 +5,8 @@
  * @param {Function} reducer - Function for a reduction.
  * @param {*} initialValue - Initial value for a reduction function.
  */
-export class ddpReducer {
-    constructor(ddpReactiveCollectionInstance: any, reducer: any, initialValue: any);
+export class ddpReducer<U> {
+    constructor<T>(ddpReactiveCollectionInstance: any, reducer: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U);
     _ddpReactiveCollectionInstance: any;
     _reducer: any;
     _started: boolean;
@@ -42,6 +42,6 @@ export class ddpReducer {
      * @param {Function} f - Function which recieves a reduced value at each change.
      * @public
      */
-    public onChange(f: Function): ddpOnChange;
+    public onChange(f: (reducedValue: U) => void): ddpOnChange;
 }
 import { ddpOnChange } from "./ddpOnChange.js";

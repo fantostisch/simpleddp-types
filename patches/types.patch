@@ -72,6 +72,24 @@
      /**
       * Maps reactive local collection to another reactive array.
       * Specified function form {@link https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map}.
+@@ -124,7 +124,7 @@
+      * @param {Function} f - Function that produces an element of the new Array.
+      * @return {ddpReducer} - Object that allows to get reactive mapped data @see ddpReducer.
+      */
+-    public map(f: Function): ddpReducer;
++    public map<A>(f: (el: T, index: number, array: T[]) => A): ddpReducer<A[]>;
+     /**
+      * Reduces reactive local collection.
+      * Specified function form {@link https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce}.
+@@ -133,7 +133,7 @@
+      * @param {*} initialValue - Value to use as the first argument to the first call of the function.
+      * @return {ddpReducer} - Object that allows to get reactive object based on reduced reactive local collection @see ddpReducer.
+      */
+-    public reduce(f: Function, initialValue: any): ddpReducer;
++    public reduce<U>(f: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue: U): ddpReducer<U>;
+     /**
+      * Reactive length of the local collection.
+      * @public
 --- a/simpleddp/index.d.ts
 +++ b/simpleddp/index.d.ts
 @@ -66,7 +66,7 @@
@@ -83,3 +101,24 @@
      /**
       * Dispatcher for ddp added messages.
       * @private
+--- a/simpleddp/classes/ddpReducer.d.ts
++++ b/simpleddp/classes/ddpReducer.d.ts
+@@ -5,8 +5,8 @@
+  * @param {Function} reducer - Function for a reduction.
+  * @param {*} initialValue - Initial value for a reduction function.
+  */
+-export class ddpReducer {
+-    constructor(ddpReactiveCollectionInstance: any, reducer: any, initialValue: any);
++export class ddpReducer<U> {
++    constructor<T>(ddpReactiveCollectionInstance: any, reducer: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U);
+     _ddpReactiveCollectionInstance: any;
+     _reducer: any;
+     _started: boolean;
+@@ -42,6 +42,6 @@
+      * @param {Function} f - Function which recieves a reduced value at each change.
+      * @public
+      */
+-    public onChange(f: Function): ddpOnChange;
++    public onChange(f: (reducedValue: U) => void): ddpOnChange;
+ }
+ import { ddpOnChange } from "./ddpOnChange.js";
