@@ -124,7 +124,7 @@ export class ddpReactiveCollection<T> {
      * @param {Function} f - Function that produces an element of the new Array.
      * @return {ddpReducer} - Object that allows to get reactive mapped data @see ddpReducer.
      */
-    public map(f: Function): ddpReducer;
+    public map<A>(f: (el: T, index: number, array: T[]) => A): ddpReducer<A[]>;
     /**
      * Reduces reactive local collection.
      * Specified function form {@link https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce}.
