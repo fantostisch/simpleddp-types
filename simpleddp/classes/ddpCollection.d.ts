@@ -39,7 +39,7 @@ export class ddpCollection<T> {
      * sort is a standard js array sort function.
      * @return {Object}
      */
-    public fetch(settings?: any): T;
+    public fetch(settings?: any): T[];
     /**
      * Returns reactive collection object.
      * @see ddpReactiveCollection

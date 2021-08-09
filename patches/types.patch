@@ -32,7 +32,7 @@
       * @return {Object}
       */
 -    public fetch(settings?: any): any;
-+    public fetch(settings?: any): T;
++    public fetch(settings?: any): T[];
      /**
       * Returns reactive collection object.
       * @see ddpReactiveCollection
