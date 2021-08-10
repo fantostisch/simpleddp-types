@@ -45,6 +45,15 @@
      /**
       * Returns change observer.
       * @see ddpOnChange
+@@ -56,7 +56,7 @@
+      * @param {Function} filter
+      * @return {ddpOnChange}
+      */
+-    public onChange(f: Function, filter: Function): ddpOnChange;
++    public onChange(f: (o: {prev: T | false, next: T | false}) => void, filter?: ((value: T, index: number, collection: T[]) => boolean)): ddpOnChange;
+ }
+ import { ddpReactiveCollection } from "./ddpReactiveCollection.js";
+ import { ddpOnChange } from "./ddpOnChange.js";
 --- a/simpleddp/classes/ddpReactiveCollection.d.ts
 +++ b/simpleddp/classes/ddpReactiveCollection.d.ts
 @@ -5,7 +5,7 @@

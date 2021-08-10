@@ -56,7 +56,7 @@ export class ddpCollection<T> {
      * @param {Function} filter
      * @return {ddpOnChange}
      */
-    public onChange(f: Function, filter: Function): ddpOnChange;
+    public onChange(f: (o: {prev: T | false, next: T | false}) => void, filter?: ((value: T, index: number, collection: T[]) => boolean)): ddpOnChange;
 }
 import { ddpReactiveCollection } from "./ddpReactiveCollection.js";
 import { ddpOnChange } from "./ddpOnChange.js";
